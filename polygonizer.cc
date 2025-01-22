@@ -24,6 +24,8 @@ namespace {
 
 }
 
+namespace Polygonizer {
+
 TriMesh isosurface(std::function<double(const Geometry::Point3D &)> f,
                    const Point3D &center, double size, size_t resolution, bool tetp) {
   mesh.clear();
@@ -37,5 +39,7 @@ TriMesh isosurface(std::function<double(const Geometry::Point3D &)> f,
   }
   mesh.setPoints(pv);
   return mesh;
+}
+
 }
 
