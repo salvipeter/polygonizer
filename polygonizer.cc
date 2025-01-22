@@ -25,11 +25,11 @@ namespace {
 }
 
 TriMesh isosurface(std::function<double(const Geometry::Point3D &)> f,
-                   const Point3D &center, double size, size_t resolution) {
+                   const Point3D &center, double size, size_t resolution, bool tetp) {
   mesh.clear();
   surface = f;
   polygonize(evalSurface, size / resolution, resolution, center[0], center[1], center[2],
-             addTriangle, NOTET);
+             addTriangle, tetp ? TET : NOTET);
   PointVector pv;
   for (int i = 0; i < points.count; i++) {
     const auto &p = points.ptr[i].position;
